@@ -1,4 +1,6 @@
 from flask import Flask
+from flask import request
+
 
 app = Flask(__name__)
 
@@ -19,6 +21,13 @@ def hello_world2():
 def test():
     a = 5+6
     return "this my first fun in flask {}".format(a)
+
+#app with input
+@app.route("/input_url")
+def request_input():
+    data = request.args.get("x")
+    return "this is my input from urls {}".format(data)
+
 
 if __name__=="__main__":
     app.run(host="0.0.0.0")
