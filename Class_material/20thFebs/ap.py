@@ -11,13 +11,32 @@ def home_page():
 def math_ops():
     if( request.method == 'POST' ):
         ops = request.form['operation']
-        num1 = request.form['num1']
-        num2 = request.form['num2']
+        num1 = int(request.form['num1'])
+        num2 = int(request.form['num2'])
     
         if ops == 'add':
             r = num1 + num2
             result = "The sum of " + str(num1) + ' and ' + str(num2) + ' is '+ str(r)
         return render_template('results.html', result = result)
+
+        if ops == 'substrack':
+            r = num1 - num2
+            result = "The substrack of " + str(num1) + ' and ' + str(num2) + ' is '+ str(r)
+        return render_template('results.html', result = result)
+
+        if ops == 'multiply':
+            r = num1 * num2
+            result = "The multiply of " + str(num1) + ' and ' + str(num2) + ' is '+ str(r)
+        return render_template('results.html', result = result)
+
+        if ops == 'divide':
+            r = num1 / num2
+            result = "The divide of " + str(num1) + ' and ' + str(num2) + ' is '+ str(r)
+        return render_template('results.html', result = result)
+
+
+
+
 
 
 
