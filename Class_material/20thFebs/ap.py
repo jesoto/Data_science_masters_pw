@@ -6,6 +6,8 @@ app = Flask(__name__)
 def home_page():
     return render_template('index.html')
 
+
+@app.route('/math', methods =['POST'])
 def math_ops():
     if( request.method == 'POST' ):
         ops = request.form['operation']
@@ -14,8 +16,8 @@ def math_ops():
     
         if ops == 'add':
             r = num1 + num2
-            result = "The sum of " + str(num1) + ' and ' str(num2) + 'is '+ str(r)
-        return render_template('result.html', result = result)
+            result = "The sum of " + str(num1) + ' and ' + str(num2) + ' is '+ str(r)
+        return render_template('results.html', result = result)
 
 
 
